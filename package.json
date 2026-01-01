@@ -1,0 +1,24 @@
+{
+  "name": "telegram_bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BolatBerd/telegram_bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BolatBerd/telegram_bot/issues"
+  },
+  "homepage": "https://github.com/BolatBerd/telegram_bot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.67.0"
+  }
+}
