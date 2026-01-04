@@ -194,14 +194,14 @@ bot.on('new_chat_members', (msg) => {
   });
 });
 
-// const schedule = require('node-schedule');
-
-// schedule.scheduleJob('* * * * *', () => {
-//   bot.sendMessage(GROUP_ID, '⏰ Сообщение каждую минуту');
-// });
+const schedule = require('node-schedule');
 const GROUP = Number(process.env.GROUP_ID);
-
-setInterval(() => {
+schedule.scheduleJob('* * * * *', () => {
   bot.sendMessage(GROUP, '⏰ Сообщение каждую минуту');
-}, 60 * 1000);
+});
+// const GROUP = Number(process.env.GROUP_ID);
+
+// setInterval(() => {
+//   bot.sendMessage(GROUP, '⏰ Сообщение каждую минуту');
+// }, 60 * 1000);
 
