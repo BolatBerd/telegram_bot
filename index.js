@@ -174,3 +174,34 @@ bot.on('message', (msg) => {
   console.log(`Сообщение от ${userId}: ${msg.text}`);
   sendMessage(chatId, `Ты написал: ${msg.text}`);
 });
+
+/* =======================
+   ДОБАВЛЕНИЕ В ГРУППУ
+======================= */
+bot.on('new_chat_members', (msg) => {
+  const chatId = msg.chat.id;
+  const GROUP_ID = Number(process.env.GROUP_ID); // добавь в .env ID группы
+
+  if (chatId !== GROUP_ID) return; // привязка к определенной группе
+
+  msg.new_chat_members.forEach((member) => {
+    if (bot.botInfo && member.id === bot.botInfo.id) {
+      bot.sendMessage(
+        chatId,
+        '👋 Привет! Спасибо, что добавили меня в группу.\nИспользуйте /help для команд.'
+      );
+    }
+  });
+});
+
+// const schedule = require('node-schedule');
+
+// schedule.scheduleJob('* * * * *', () => {
+//   bot.sendMessage(GROUP_ID, '⏰ Сообщение каждую минуту');
+// });
+const GROUP = Number(process.env.GROUP_ID);
+
+setInterval(() => {
+  bot.sendMessage(GROUP, '⏰ Сообщение каждую минуту');
+}, 60 * 1000);
+
